@@ -793,7 +793,29 @@ body {
     color: #6B7280;
     font-size: 0.9rem;
 }
+.price-section {
+  margin-top: 1em;
+}
 
+.price-section h5 {
+  font-size: 1em;
+  margin-bottom: 0.3em;
+  color: #666;
+}
+
+.price-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.price-section li {
+  padding: 0.2em 0;
+  border-bottom: 1px solid #eee;
+}
+
+strong {
+  color: #000;
+}
 /* Calendar */
 .calendar-container {
     background: #F9FAFB;
