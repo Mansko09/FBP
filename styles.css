@@ -288,7 +288,9 @@ body {
 
 .service-image {
     height: 200px;
-    background: linear-gradient(135deg, #FDE8CC, #FCD34D);
+    background-size: cover; /* Fills the container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
 }
 
 .service-content {
