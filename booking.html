@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation - Bella Coiffure Afro</title>
+    <meta name="description" content="Réservez votre rendez-vous en ligne pour nos services de coiffure afro. Choisissez votre date, heure et service préféré.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cut"></i>
+                </div>
+                <span class="logo-text">Bella Coiffure Afro</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="gallery.html" class="nav-link">Galerie</a>
+                <a href="booking.html" class="nav-link active">Réservation</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="booking-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Réservation</h1>
+                <p>Choisissez votre service et réservez votre créneau en quelques clics. Nous avons hâte de prendre soin de vos cheveux !</p>
+            </div>
+
+            <div class="booking-container">
+                <form id="booking-form" class="booking-form">
+                    <!-- Step 1: Service Selection -->
+                    <div class="booking-step active" id="step-1">
+                        <h2>1. Choisissez votre service</h2>
+                        <div class="services-selection">
+                            <div class="service-option">
+                                <input type="radio" id="tresses" name="service" value="tresses" data-duration="180" data-price="50">
+                                <label for="tresses">
+                                    <div class="service-card">
+                                        <h3>Tresses & Nattes</h3>
+                                        <p class="service-description">Tresses africaines, nattes, vanilles</p>
+                                        <div class="service-details">
+                                            <span class="price">À partir de 35€</span>
+                                            <span class="duration">2-4h</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="service-option">
+                                <input type="radio" id="defrisage" name="service" value="defrisage" data-duration="150" data-price="60">
+                                <label for="defrisage">
+                                    <div class="service-card">
+                                        <h3>Défrisage</h3>
+                                        <p class="service-description">Lissage professionnel adapté</p>
+                                        <div class="service-details">
+                                            <span class="price">À partir de 45€</span>
+                                            <span class="duration">2-3h</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="service-option">
+                                <input type="radio" id="soins" name="service" value="soins" data-duration="60" data-price="35">
+                                <label for="soins">
+                                    <div class="service-card">
+                                        <h3>Soins Capillaires</h3>
+                                        <p class="service-description">Hydratation, réparation, massage</p>
+                                        <div class="service-details">
+                                            <span class="price">À partir de 25€</span>
+                                            <span class="duration">45min-1h</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="service-option">
+                                <input type="radio" id="coupe" name="service" value="coupe" data-duration="75" data-price="40">
+                                <label for="coupe">
+                                    <div class="service-card">
+                                        <h3>Coupe & Style</h3>
+                                        <p class="service-description">Coupe, mise en forme, styling</p>
+                                        <div class="service-details">
+                                            <span class="price">À partir de 30€</span>
+                                            <span class="duration">45min-1h</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="service-option">
+                                <input type="radio" id="extensions" name="service" value="extensions" data-duration="240" data-price="90">
+                                <label for="extensions">
+                                    <div class="service-card">
+                                        <h3>Extensions</h3>
+                                        <p class="service-description">Pose d'extensions, tissage</p>
+                                        <div class="service-details">
+                                            <span class="price">À partir de 60€</span>
+                                            <span class="duration">2-4h</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="service-option">
+                                <input type="radio" id="mariage" name="service" value="mariage" data-duration="180" data-price="115">
+                                <label for="mariage">
+                                    <div class="service-card">
+                                        <h3>Coiffure Mariage</h3>
+                                        <p class="service-description">Coiffures élégantes pour événements</p>
+                                        <div class="service-details">
+                                            <span class="price">À partir de 80€</span>
+                                            <span class="duration">2-3h</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary next-step" onclick="nextStep(2)">Continuer</button>
+                    </div>
+
+                    <!-- Step 2: Date Selection -->
+                    <div class="booking-step" id="step-2">
+                        <h2>2. Choisissez votre date</h2>
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button type="button" class="calendar-nav" id="prev-month">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <h3 id="calendar-month-year"></h3>
+                                <button type="button" class="calendar-nav" id="next-month">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="calendar-grid" id="calendar-grid">
+                                <!-- Calendar will be generated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep(1)">Retour</button>
+                            <button type="button" class="btn btn-primary next-step" onclick="nextStep(3)" disabled>Continuer</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Time Selection -->
+                    <div class="booking-step" id="step-3">
+                        <h2>3. Choisissez votre horaire</h2>
+                        <div class="time-slots" id="time-slots">
+                            <!-- Time slots will be generated by JavaScript -->
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep(2)">Retour</button>
+                            <button type="button" class="btn btn-primary next-step" onclick="nextStep(4)" disabled>Continuer</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Contact Information -->
+                    <div class="booking-step" id="step-4">
+                        <h2>4. Vos informations</h2>
+                        <div class="contact-form">
+                            <div class="form-group">
+                                <label for="firstName">Prénom *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nom *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Notes spéciales (optionnel)</label>
+                                <textarea id="notes" name="notes" rows="3" placeholder="Précisions sur votre type de cheveux, allergies, ou demandes particulières..."></textarea>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep(3)">Retour</button>
+                            <button type="button" class="btn btn-primary next-step" onclick="nextStep(5)">Continuer</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Confirmation -->
+                    <div class="booking-step" id="step-5">
+                        <h2>5. Confirmation</h2>
+                        <div class="booking-summary">
+                            <div class="summary-card">
+                                <h3>Récapitulatif de votre rendez-vous</h3>
+                                <div class="summary-item">
+                                    <span class="label">Service :</span>
+                                    <span id="summary-service"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Date :</span>
+                                    <span id="summary-date"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Heure :</span>
+                                    <span id="summary-time"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Durée estimée :</span>
+                                    <span id="summary-duration"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Prix estimé :</span>
+                                    <span id="summary-price"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Client :</span>
+                                    <span id="summary-client"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Téléphone :</span>
+                                    <span id="summary-phone"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep(4)">Retour</button>
+                            <button type="submit" class="btn btn-primary">Confirmer le rendez-vous</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-check-circle"></i>
+                <h2>Rendez-vous confirmé !</h2>
+            </div>
+            <div class="modal-body">
+                <p>Merci ! Votre rendez-vous a été enregistré avec succès.</p>
+                <p>Vous recevrez un email de confirmation dans quelques instants.</p>
+                <p><strong>À bientôt chez Bella Coiffure Afro !</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal()">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Rue de la Beauté, 75011 Paris</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>01 42 68 53 27</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@bellacoiffureafro.fr</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horaires</h3>
+                    <div class="hours">
+                        <div class="hour-item">
+                            <span>Lundi - Vendredi</span>
+                            <span>9:00 - 19:00</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Samedi</span>
+                            <span>8:00 - 20:00</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Dimanche</span>
+                            <span>10:00 - 18:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bella Coiffure Afro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

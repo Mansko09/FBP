@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Bella Coiffure Afro</title>
+    <meta name="description" content="Contactez Bella Coiffure Afro : adresse, téléphone, horaires, plan d'accès et réseaux sociaux pour votre salon de coiffure afro à Paris.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cut"></i>
+                </div>
+                <span class="logo-text">Bella Coiffure Afro</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="gallery.html" class="nav-link">Galerie</a>
+                <a href="booking.html" class="nav-link">Réservation</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="contact-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Nous Contacter</h1>
+                <p>Nous sommes là pour vous ! Contactez-nous pour toute question, conseil ou pour prendre rendez-vous.</p>
+            </div>
+
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Adresse</h3>
+                            <p>123 Rue de la Beauté<br>75011 Paris, France</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Téléphone</h3>
+                            <p><a href="tel:0142685327">01 42 68 53 27</a></p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:contact@bellacoiffureafro.fr">contact@bellacoiffureafro.fr</a></p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Horaires</h3>
+                            <div class="hours-list">
+                                <div class="hour-item">
+                                    <span>Lun - Ven</span>
+                                    <span>9:00 - 19:00</span>
+                                </div>
+                                <div class="hour-item">
+                                    <span>Samedi</span>
+                                    <span>8:00 - 20:00</span>
+                                </div>
+                                <div class="hour-item">
+                                    <span>Dimanche</span>
+                                    <span>10:00 - 18:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <div class="form-card">
+                        <h2>Envoyez-nous un message</h2>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-firstName">Prénom *</label>
+                                    <input type="text" id="contact-firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-lastName">Nom *</label>
+                                    <input type="text" id="contact-lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-email">Email *</label>
+                                    <input type="email" id="contact-email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-phone">Téléphone</label>
+                                    <input type="tel" id="contact-phone" name="phone">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-subject">Sujet *</label>
+                                <select id="contact-subject" name="subject" required>
+                                    <option value="">Choisissez un sujet</option>
+                                    <option value="rdv">Prise de rendez-vous</option>
+                                    <option value="info">Demande d'information</option>
+                                    <option value="prix">Question sur les prix</option>
+                                    <option value="produits">Conseils produits</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-message">Message *</label>
+                                <textarea id="contact-message" name="message" rows="5" required placeholder="Votre message..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <h2>Nous trouver</h2>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <div class="map-content">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h3>123 Rue de la Beauté</h3>
+                            <p>75011 Paris, France</p>
+                            <div class="map-info">
+                                <p><strong>Métro :</strong> Ligne 3 - Station République</p>
+                                <p><strong>Bus :</strong> Lignes 20, 65, 75</p>
+                                <p><strong>Parking :</strong> Parking République (payant)</p>
+                            </div>
+                            <a href="https://maps.google.com/?q=123+Rue+de+la+Beauté,+75011+Paris" 
+                               target="_blank" 
+                               class="btn btn-secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Ouvrir dans Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="social-section">
+                <h2>Suivez-nous sur les réseaux sociaux</h2>
+                <p>Découvrez nos dernières créations et restez informé(e) de nos actualités</p>
+                <div class="social-links-large">
+                    <a href="#" class="social-link-large instagram">
+                        <i class="fab fa-instagram"></i>
+                        <div class="social-info">
+                            <h3>Instagram</h3>
+                            <p>@bellacoiffureafro</p>
+                        </div>
+                    </a>
+                    <a href="#" class="social-link-large facebook">
+                        <i class="fab fa-facebook"></i>
+                        <div class="social-info">
+                            <h3>Facebook</h3>
+                            <p>Bella Coiffure Afro</p>
+                        </div>
+                    </a>
+                    <a href="#" class="social-link-large whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="social-info">
+                            <h3>WhatsApp</h3>
+                            <p>01 42 68 53 27</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Prêt(e) pour votre transformation ?</h2>
+            <p>N'attendez plus ! Réservez votre rendez-vous dès maintenant.</p>
+            <div class="cta-buttons">
+                <a href="booking.html" class="btn btn-primary">
+                    <i class="fas fa-calendar-alt"></i>
+                    Réserver en ligne
+                </a>
+                <a href="tel:0142685327" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    Appeler maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Rue de la Beauté, 75011 Paris</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>01 42 68 53 27</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@bellacoiffureafro.fr</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horaires</h3>
+                    <div class="hours">
+                        <div class="hour-item">
+                            <span>Lundi - Vendredi</span>
+                            <span>9:00 - 19:00</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Samedi</span>
+                            <span>8:00 - 20:00</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Dimanche</span>
+                            <span>10:00 - 18:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bella Coiffure Afro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
