@@ -293,9 +293,9 @@ body {
     background-repeat: no-repeat;
 }
 
-.service-content {
+/* .service-content {
     padding: 24px;
-}
+} */
 
 .service-content h3 {
     font-size: 1.3rem;
@@ -518,7 +518,7 @@ body {
 
 .service-duration {
     display: flex;
-    align-items: center;
+    align-items: center; 
     gap: 8px;
     color: #EA580C;
     font-weight: 500;
