@@ -46,93 +46,293 @@
                 <form id="booking-form" class="booking-form">
                     <!-- Step 1: Service Selection -->
                     <div class="booking-step active" id="step-1">
-                        <h2>1. Choisissez votre service</h2>
-                        <div class="services-selection">
-                            <div class="service-option">
-                                <input type="radio" id="tresses" name="service" value="tresses" data-duration="180" data-price="50">
-                                <label for="tresses">
-                                    <div class="service-card">
-                                        <h3>Tresses & Nattes</h3>
-                                        <p class="service-description">Tresses africaines, nattes, vanilles</p>
-                                        <div class="service-details">
-                                            <span class="price">À partir de 35€</span>
-                                            <span class="duration">2-4h</span>
-                                        </div>
-                                    </div>
-                                </label>
+                    <h2>1. Choisissez votre service</h2>
+                    <div class="services-selection">
+                        <div class="service-option">
+                        <input type="radio" id="cornrows" name="service" value="cornrows" data-duration="105" data-price="25">
+                        <label for="cornrows">
+                            <div class="service-card">
+                            <h4>Nattes collées / Cornrows</h4>
+                            <p class="service-description">2 à 6 nattes – 25€ / 6 à 10 nattes – 45€</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 25€</span>
+                                <span class="duration">30min – 3h</span>
                             </div>
-
-                            <div class="service-option">
-                                <input type="radio" id="defrisage" name="service" value="defrisage" data-duration="150" data-price="60">
-                                <label for="defrisage">
-                                    <div class="service-card">
-                                        <h3>Défrisage</h3>
-                                        <p class="service-description">Lissage professionnel adapté</p>
-                                        <div class="service-details">
-                                            <span class="price">À partir de 45€</span>
-                                            <span class="duration">2-3h</span>
-                                        </div>
-                                    </div>
-                                </label>
                             </div>
-
-                            <div class="service-option">
-                                <input type="radio" id="soins" name="service" value="soins" data-duration="60" data-price="35">
-                                <label for="soins">
-                                    <div class="service-card">
-                                        <h3>Soins Capillaires</h3>
-                                        <p class="service-description">Hydratation, réparation, massage</p>
-                                        <div class="service-details">
-                                            <span class="price">À partir de 25€</span>
-                                            <span class="duration">45min-1h</span>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-
-                            <div class="service-option">
-                                <input type="radio" id="coupe" name="service" value="coupe" data-duration="75" data-price="40">
-                                <label for="coupe">
-                                    <div class="service-card">
-                                        <h3>Coupe & Style</h3>
-                                        <p class="service-description">Coupe, mise en forme, styling</p>
-                                        <div class="service-details">
-                                            <span class="price">À partir de 30€</span>
-                                            <span class="duration">45min-1h</span>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-
-                            <div class="service-option">
-                                <input type="radio" id="extensions" name="service" value="extensions" data-duration="240" data-price="90">
-                                <label for="extensions">
-                                    <div class="service-card">
-                                        <h3>Extensions</h3>
-                                        <p class="service-description">Pose d'extensions, tissage</p>
-                                        <div class="service-details">
-                                            <span class="price">À partir de 60€</span>
-                                            <span class="duration">2-4h</span>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-
-                            <div class="service-option">
-                                <input type="radio" id="mariage" name="service" value="mariage" data-duration="180" data-price="115">
-                                <label for="mariage">
-                                    <div class="service-card">
-                                        <h3>Coiffure Mariage</h3>
-                                        <p class="service-description">Coiffures élégantes pour événements</p>
-                                        <div class="service-details">
-                                            <span class="price">À partir de 80€</span>
-                                            <span class="duration">2-3h</span>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
+                        </label>
                         </div>
-                        <button type="button" class="btn btn-primary next-step" onclick="nextStep(2)">Continuer</button>
+
+                        <div class="service-option">
+                        <input type="radio" id="box-braids" name="service" value="box-braids" data-duration="240" data-price="55">
+                        <label for="box-braids">
+                            <div class="service-card">
+                            <h4>Box Braids</h4>
+                            <p class="service-description">Longueur mi-longue – 55€ … jusqu’à 120€ selon taille</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 55€</span>
+                                <span class="duration">3h – 5h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="twist-vanilles" name="service" value="twist-vanilles" data-duration="180" data-price="65">
+                        <label for="twist-vanilles">
+                            <div class="service-card">
+                            <h4>Twist / Vanilles</h4>
+                            <p class="service-description">Longueur mi-longue – 65€ … jusqu’à 160€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 65€</span>
+                                <span class="duration">2h – 4h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="knotless-braids" name="service" value="knotless-braids" data-duration="240" data-price="65">
+                        <label for="knotless-braids">
+                            <div class="service-card">
+                            <h4>Knotless Braids</h4>
+                            <p class="service-description">Longueur mi-longue – 65€ … jusqu’à 160€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 65€</span>
+                                <span class="duration">3h – 5h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="crochet-braids" name="service" value="crochet-braids" data-duration="120" data-price="55">
+                        <label for="crochet-braids">
+                            <div class="service-card">
+                            <h4>Crochet Braids</h4>
+                            <p class="service-description">Pose & coiffage – 55€ … plus selon type de mèches</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 55€</span>
+                                <span class="duration">1h – 3h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="piques-laches" name="service" value="piques-laches" data-duration="180" data-price="80">
+                        <label for="piques-laches">
+                            <div class="service-card">
+                            <h4>Piqués lâchés</h4>
+                            <p class="service-description">Épaules – 80€ … jusqu’à 120€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 80€</span>
+                                <span class="duration">2h – 4h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="bantu-knots" name="service" value="bantu-knots" data-duration="90" data-price="35">
+                        <label for="bantu-knots">
+                            <div class="service-card">
+                            <h4>Bantu Knots</h4>
+                            <p class="service-description">Nœuds classiques – 35€ à 55€ selon style</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 35€</span>
+                                <span class="duration">1h – 2h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="passion-twists" name="service" value="passion-twists" data-duration="240" data-price="80">
+                        <label for="passion-twists">
+                            <div class="service-card">
+                            <h4>Passion Twists</h4>
+                            <p class="service-description">Carré – 80€ … jusqu’à 160€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 80€</span>
+                                <span class="duration">3h – 5h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="fulani-tribal" name="service" value="fulani-tribal" data-duration="240" data-price="65">
+                        <label for="fulani-tribal">
+                            <div class="service-card">
+                            <h4>Fulani / Tribal</h4>
+                            <p class="service-description">Mi-longue – 65€ … jusqu’à 160€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 65€</span>
+                                <span class="duration">3h – 5h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="goddess-boho-braids" name="service" value="goddess-boho-braids" data-duration="240" data-price="80">
+                        <label for="goddess-boho-braids">
+                            <div class="service-card">
+                            <h4>Goddess / Boho Braids</h4>
+                            <p class="service-description">Milieu dos – 80€ … jusqu’à 120€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 80€</span>
+                                <span class="duration">3h – 5h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="goddess-boho-knotless" name="service" value="goddess-boho-knotless" data-duration="240" data-price="85">
+                        <label for="goddess-boho-knotless">
+                            <div class="service-card">
+                            <h4>Goddess / Boho Knotless</h4>
+                            <p class="service-description">Milieu dos – 85€ … jusqu’à 130€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 85€</span>
+                                <span class="duration">3h – 5h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="curly-knotless" name="service" value="curly-knotless" data-duration="240" data-price="100">
+                        <label for="curly-knotless">
+                            <div class="service-card">
+                            <h4>Curly Knotless</h4>
+                            <p class="service-description">Milieu dos – 100€ … jusqu’à 160€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 100€</span>
+                                <span class="duration">3h – 5h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="curly-braids" name="service" value="curly-braids" data-duration="240" data-price="90">
+                        <label for="curly-braids">
+                            <div class="service-card">
+                            <h4>Curly Braids</h4>
+                            <p class="service-description">Milieu dos – 90€ … jusqu’à 150€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 90€</span>
+                                <span class="duration">3h – 5h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="soft-locks" name="service" value="soft-locks" data-duration="300" data-price="100">
+                        <label for="soft-locks">
+                            <div class="service-card">
+                            <h4>Soft Locks</h4>
+                            <p class="service-description">Milieu dos – 100€ … jusqu’à 190€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 100€</span>
+                                <span class="duration">3h – 7h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="faux-locks" name="service" value="faux-locks" data-duration="300" data-price="80">
+                        <label for="faux-locks">
+                            <div class="service-card">
+                            <h4>Faux Locks</h4>
+                            <p class="service-description">Carré – 80€ … jusqu’à 190€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 80€</span>
+                                <span class="duration">3h – 7h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="boholocks" name="service" value="boholocks" data-duration="300" data-price="80">
+                        <label for="boholocks">
+                            <div class="service-card">
+                            <h4>Boholocks / Butterflylocks</h4>
+                            <p class="service-description">Carré – 80€ … jusqu’à 190€ selon longueur</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 80€</span>
+                                <span class="duration">3h – 7h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="ponytail" name="service" value="ponytail" data-duration="90" data-price="55">
+                        <label for="ponytail">
+                            <div class="service-card">
+                            <h4>Ponytail</h4>
+                            <p class="service-description">Pose & coiffage – 55€ … jusqu’à 75€ selon mèches</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 55€</span>
+                                <span class="duration">1h – 2h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="tissage-lace" name="service" value="tissage-lace" data-duration="90" data-price="55">
+                        <label for="tissage-lace">
+                            <div class="service-card">
+                            <h4>Tissage & Pose de Lace</h4>
+                            <p class="service-description">Pose & customization – 65€ … coiffage – 55€</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 55€</span>
+                                <span class="duration">1h – 2h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="shampooing-soins" name="service" value="shampooing-soins" data-duration="90" data-price="25">
+                        <label for="shampooing-soins">
+                            <div class="service-card">
+                            <h4>Shampooing & Soins</h4>
+                            <p class="service-description">Express – 65€ / Complet – 25€ / Complet & soins – 35€</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 25€</span>
+                                <span class="duration">1h – 2h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                        <div class="service-option">
+                        <input type="radio" id="retrait-tresses" name="service" value="retrait-tresses" data-duration="90" data-price="35">
+                        <label for="retrait-tresses">
+                            <div class="service-card">
+                            <h4>Retrait des Tresses</h4>
+                            <p class="service-description">Médium – 35€ / Small – 50€ / Xtra small – 65€</p>
+                            <div class="service-details">
+                                <span class="price">À partir de 35€</span>
+                                <span class="duration">1h – 2h</span>
+                            </div>
+                            </div>
+                        </label>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="btn btn-primary next-step" onclick="nextStep(2)">
+                        Continuer
+                    </button>
                     </div>
 
                     <!-- Step 2: Date Selection -->
