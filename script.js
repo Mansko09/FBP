@@ -1,3 +1,14 @@
+const businessHours = {
+  0: null,                     // Dimanche : fermé
+  1: { open: "10:30", close: "20:00" }, // Lundi
+  2: { open: "09:30", close: "20:00" }, // Mardi
+  3: { open: "09:30", close: "20:00" }, // Mercredi
+  4: { open: "09:30", close: "20:00" }, // Jeudi
+  5: { open: "09:30", close: "20:00" }, // Vendredi
+  6: { open: "08:30", close: "20:00" }  // Samedi
+};
+
+
 // Mobile Navigation
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
@@ -252,29 +263,32 @@ function generateCalendar() {
     // Generate calendar days
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
+
+
     for (let i = 0; i < 42; i++) {
-        const date = new Date(startDate);
-        date.setDate(startDate.getDate() + i);
-        
-        const dayEl = document.createElement('button');
-        dayEl.type = 'button';
-        dayEl.className = 'calendar-day';
-        dayEl.textContent = date.getDate();
-        
-        // Add classes based on date properties
-        if (date.getMonth() !== currentDate.getMonth()) {
-            dayEl.classList.add('other-month');
-        }
-        
-        if (date < today) {
-            dayEl.classList.add('disabled');
-        } else {
-            dayEl.addEventListener('click', () => selectDate(date, dayEl));
-        }
-        
-        calendarGrid.appendChild(dayEl);
+    const date = new Date(startDate);
+    date.setDate(startDate.getDate() + i);
+
+    const dayEl = document.createElement('button');
+    dayEl.type = 'button';
+    dayEl.className = 'calendar-day';
+    dayEl.textContent = date.getDate();
+
+    // jours hors mois
+    if (date.getMonth() !== currentDate.getMonth()) {
+      dayEl.classList.add('other-month');
     }
+
+    // avant aujourd'hui ou fermé
+    const weekday = date.getDay();
+    if (date < today || businessHours[weekday] === null) {
+      dayEl.classList.add('disabled');
+    } else {
+      dayEl.addEventListener('click', () => selectDate(date, dayEl));
+    }
+
+    calendarGrid.appendChild(dayEl);
+  }
 }
 
 function selectDate(date, element) {
@@ -289,52 +303,66 @@ function selectDate(date, element) {
     // Store selected date
     selectedDate = new Date(date);
     bookingData.date = selectedDate;
-    
+    generateTimeSlots();
     // Enable next button
     const nextBtn = document.querySelector('#step-2 .next-step');
     nextBtn.disabled = false;
 }
 
-// Time Slots Functionality
+
 function generateTimeSlots() {
-    const timeSlotsContainer = document.getElementById('time-slots');
-    if (!timeSlotsContainer) return;
-    
-    timeSlotsContainer.innerHTML = '';
-    
-    // Business hours: 8:00 - 20:00 (8 AM - 8 PM)
-    const startHour = 8;
-    const endHour = 20;
-    const slotDuration = 30; // 30 minutes
-    
-    for (let hour = startHour; hour < endHour; hour++) {
-        for (let minute = 0; minute < 60; minute += slotDuration) {
-            const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
-            
-            // Check if slot would end after business hours
-            const slotEndTime = new Date();
-            slotEndTime.setHours(hour, minute + bookingData.duration, 0, 0);
-            
-            if (slotEndTime.getHours() > endHour) {
-                continue;
-            }
-            
-            const slotEl = document.createElement('button');
-            slotEl.type = 'button';
-            slotEl.className = 'time-slot';
-            slotEl.textContent = timeString;
-            
-            // Randomly disable some slots to simulate bookings
-            if (Math.random() < 0.3) {
-                slotEl.classList.add('disabled');
-            } else {
-                slotEl.addEventListener('click', () => selectTimeSlot(timeString, slotEl));
-            }
-            
-            timeSlotsContainer.appendChild(slotEl);
-        }
-    }
+  const timeSlotsContainer = document.getElementById('time-slots');
+  if (!timeSlotsContainer) return;
+  timeSlotsContainer.innerHTML = '';
+
+  if (!selectedDate) return;
+
+  const weekday = selectedDate.getDay();
+  const hours = businessHours[weekday];
+  if (!hours) {
+    timeSlotsContainer.innerHTML = '<p>Le salon est fermé ce jour-là.</p>';
+    return;
+  }
+
+  // Convertir "HH:MM" en minutes depuis minuit
+  const [openH, openM] = hours.open.split(':').map(Number);
+  const [closeH, closeM] = hours.close.split(':').map(Number);
+  const startMinutes = openH * 60 + openM;
+  const endMinutes = closeH * 60 + closeM;
+
+  const slotDuration = 30; // en minutes
+  console.log(
+    '[generateTimeSlots]',
+    'date=', bookingData.date,
+    'jour=', bookingData.date.getDay(),
+    'durée=', bookingData.duration,
+    'ouverture=', hours.open,
+    'fermeture=', hours.close
+    );
+
+  for (let mins = startMinutes; mins + slotDuration <= endMinutes; mins += slotDuration) {
+    const hour = Math.floor(mins / 60);
+    const minute = mins % 60;
+    const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+
+    const slotEl = document.createElement('button');
+    slotEl.type = 'button';
+    slotEl.className = 'time-slot';
+    slotEl.textContent = timeString;
+
+    // // Ici, vous pouvez remplacer la logique "aléatoire" par un appel réel de disponibilité
+    // if (Math.random() < 0.3) {
+    //   slotEl.classList.add('disabled');
+    // } else {
+    //   slotEl.addEventListener('click', () => selectTimeSlot(timeString, slotEl));
+    // }
+    // À la place de votre bloc random
+    slotEl.addEventListener('click', () => selectTimeSlot(timeString, slotEl));
+
+    timeSlotsContainer.appendChild(slotEl);
+  }
 }
+
 
 function selectTimeSlot(time, element) {
     // Remove previous selection
@@ -356,12 +384,26 @@ function selectTimeSlot(time, element) {
 // Booking Summary
 function updateBookingSummary() {
     const serviceNames = {
-        'tresses': 'Tresses & Nattes',
-        'defrisage': 'Défrisage',
-        'soins': 'Soins Capillaires',
-        'coupe': 'Coupe & Style',
-        'extensions': 'Extensions',
-        'mariage': 'Coiffure Mariage'
+        'cornrows': 'Cornrows',
+        'box-braids': 'Box-braids',
+        'twist-vanilles': 'Twist-vanilles',
+        'knotless-braids': 'knotless-braids',
+        'crochet-braids': 'crochet-braids',
+        'piques-laches': 'piques-laches',
+        'bantu-knots': 'bantu-knots',
+        'passion-twists': 'passion-twists',
+        'fulani-tribal': 'fulani-tribal',
+        'goddess-boho-braids': 'goddess-boho-braids',
+        'goddess-boho-knotless':'goddess-boho-knotless',
+        'curly-knotless':'curly-knotless',
+        'curly-braids':'curly-braids',
+        'soft-locks':'soft-locks',
+        'faux-locks': 'faux-locks',
+        'boholocks':'boholocks',
+        'ponytail':'ponytail',
+        'tissage-lace': 'tissage-lace',
+        'shampooing-soins':'shampooing-soins',
+        'retrait-tresses':'retrait-tresses',
     };
     
     const formatDate = (date) => {
@@ -374,22 +416,22 @@ function updateBookingSummary() {
         return date.toLocaleDateString('fr-FR', options);
     };
     
-    const formatDuration = (minutes) => {
-        const hours = Math.floor(minutes / 60);
-        const mins = minutes % 60;
-        if (hours > 0 && mins > 0) {
-            return `${hours}h${mins.toString().padStart(2, '0')}`;
-        } else if (hours > 0) {
-            return `${hours}h`;
-        } else {
-            return `${mins}min`;
-        }
-    };
+    // const formatDuration = (minutes) => {
+    //     const hours = Math.floor(minutes / 60);
+    //     const mins = minutes % 60;
+    //     if (hours > 0 && mins > 0) {
+    //         return `${hours}h${mins.toString().padStart(2, '0')}`;
+    //     } else if (hours > 0) {
+    //         return `${hours}h`;
+    //     } else {
+    //         return `${mins}min`;
+    //     }
+    // };
     
     document.getElementById('summary-service').textContent = serviceNames[bookingData.service];
     document.getElementById('summary-date').textContent = formatDate(bookingData.date);
     document.getElementById('summary-time').textContent = bookingData.time;
-    document.getElementById('summary-duration').textContent = formatDuration(bookingData.duration);
+    // document.getElementById('summary-duration').textContent = formatDuration(bookingData.duration);
     document.getElementById('summary-price').textContent = `À partir de ${bookingData.price}€`;
     document.getElementById('summary-client').textContent = `${bookingData.customer.firstName} ${bookingData.customer.lastName}`;
     document.getElementById('summary-phone').textContent = bookingData.customer.phone;
